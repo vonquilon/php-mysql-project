@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+#header_ul {
+	float: right;
+	height: 80px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

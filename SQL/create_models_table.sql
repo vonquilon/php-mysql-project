@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS models (
+	modelId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	modelName VARCHAR(20) NOT NULL DEFAULT '',
+	makeFk INT,
+	typeFk TINYINT,
+	year SMALLINT NOT NULL DEFAULT 0,
+	driveTypeFk TINYINT,
+	cylinders TINYINT NOT NULL DEFAULT 0,
+	horsepower SMALLINT NOT NULL DEFAULT 0,
+	torque SMALLINT NOT NULL DEFAULT 0,
+	cityMpg SMALLINT NOT NULL DEFAULT 0,
+	highwayMpg SMALLINT NOT NULL DEFAULT 0,
+	combinedMpg SMALLINT NOT NULL DEFAULT 0,
+	seating TINYINT NOT NULL DEFAULT 0,
+	ratingFk TINYINT,
+	CONSTRAINT fk_make FOREIGN KEY (makeFk) REFERENCES makes (makeId) ON UPDATE CASCADE,
+	CONSTRAINT fk_type FOREIGN KEY (typeFk) REFERENCES types (typeId) ON UPDATE CASCADE,
+	CONSTRAINT fk_driveType FOREIGN KEY (driveTypeFk) REFERENCES drive_types (driveTypeId) ON UPDATE CASCADE,
+	CONSTRAINT fk_rating FOREIGN KEY (ratingFk) REFERENCES rating_values (ratingId),
+	CONSTRAINT unique_model UNIQUE(modelName, makeFk, typeFk, year, driveTypeFk, cylinders)
+);

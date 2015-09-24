@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+#rightpanel {
+	float: right;
+	width: 735px;
+	height: 400px;
+	overflow: hidden;
+	padding-bottom: 8px;
+	background: #E5E4E2;
+}

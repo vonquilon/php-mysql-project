@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS locations (
+	locationId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	address VARCHAR(50) NOT NULL DEFAULT '',
+	zipcodeFk VARCHAR(15),
+	availableCars SMALLINT NOT NULL DEFAULT 0,
+	totalCars SMALLINT NOT NULL DEFAULT 0,
+	CONSTRAINT fk_zipcode FOREIGN KEY (zipcodeFk) REFERENCES zipcodes (zipcode) ON UPDATE CASCADE,
+	CONSTRAINT unique_address UNIQUE(address)
+);

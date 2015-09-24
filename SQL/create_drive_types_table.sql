@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS drive_types (
+	driveTypeId TINYINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	driveType VARCHAR(20) NOT NULL DEFAULT '',
+	CONSTRAINT unique_driveType UNIQUE(driveType)
+);

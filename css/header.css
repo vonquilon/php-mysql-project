@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+#header {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	height: 80px;
+	background: #000000;
+}

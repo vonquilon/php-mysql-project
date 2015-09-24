@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS rents (
+    rentId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userFk INT,
+    carFk INT,
+    date DATETIME,
+    CONSTRAINT fk_user FOREIGN KEY (userFk)
+        REFERENCES users (userId)
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT fk_car FOREIGN KEY (carFk)
+        REFERENCES cars (carId)
+        ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+CREATE TRIGGER date_created BEFORE INSERT ON rents
+FOR EACH ROW
+SET NEW.date = NOW();

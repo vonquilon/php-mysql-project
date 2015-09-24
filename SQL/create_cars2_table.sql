@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS cars (
+	carId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	modelFk INT,
+	locationFk INT,
+	totalCars SMALLINT NOT NULL DEFAULT 0,
+	color VARCHAR(50) NOT NULL DEFAULT '',
+	CONSTRAINT fk_model FOREIGN KEY (modelFk) REFERENCES models (modelId) ON UPDATE CASCADE,
+	CONSTRAINT fk_location FOREIGN KEY (locationFk) REFERENCES locations (locationId) ON UPDATE CASCADE,
+	CONSTRAINT unique_car UNIQUE(modelFk, locationFk)
+);
